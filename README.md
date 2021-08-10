@@ -61,12 +61,12 @@ In this example, PREPAIR will only compute the physiological noise time-series w
 To reproduce the plot below, please download the magnitude, mask and phase files of subject S10TR700MB8 in the 3TWB_1 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HWHOAR). 
 In this spectrogram, the cardiac fundamental frequency is at ~0.6 Hz,and correctly identified by PREPAIR-magnitude.
 
-![S10_demo1](PREPAIR_1.0/demodata1/S10.png)
+![S10_demo1](demodata1/S10.png)
 
 To reproduce the plot below, please download the magnitude, mask and phase files of subject S4TR2000MB1 in the 3TWB_4 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3DSPSB).
 In this spectrogram, the cardiac fundamental frequency is at ~1.5 Hz and correctly identified by PREPAIR-phase.
 
-![S4_demo1](PREPAIR_1.0/demodata1/S4.png)
+![S4_demo1](demodata1/S4.png)
 
 ### Example: PREPAIR_demo2.m
 In this example, PREPAIR will run the entire pipeline and display the spectrogram and the power spectra of the magnitude data before and after correction. In the folder demodata2 are plots for three subjects. 
@@ -74,20 +74,20 @@ In this example, PREPAIR will run the entire pipeline and display the spectrogra
 To reproduce the plots below, please download the magnitude, mask and phase files of subject S4TR1020MB4 in the 3TWB_2 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YO6NHE).
 For subject S4,the respiratory fundamental frequency is at ~0.28 Hz and the cardiac fundamental frequency is at ~1.53 Hz.
 
-![S4_demo2](PREPAIR_1.0/demodata2/S4_spec.png)
-![S4_demo2_bis](PREPAIR_1.0/demodata2/S4_freq.png)
+![S4_demo2](demodata2/S4_spec.png)
+![S4_demo2_bis](demodata2/S4_freq.png)
 
 To reproduce the plots below, please download the magnitude, mask and phase files of subject S4TR1520MB2 in the 3TWB_3 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FR6SVM).
 For subject S5,the respiratory fundamental frequency is at ~0.29 Hz and the cardiac fundamental frequency is at ~1.0 Hz.
 
-![S5_demo2](PREPAIR_1.0/demodata2/S5_spec.png)
-![S5_demo2_bis](PREPAIR_1.0/demodata2/S5_freq.png)
+![S5_demo2](demodata2/S5_spec.png)
+![S5_demo2_bis](demodata2/S5_freq.png)
 
 To reproduce the plots below, please download the magnitude, mask and phase files of subject S10TR700MB8 in the 3TWB_1 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HWHOAR).
 For subject S10,the respiratory fundamental frequency is at ~0.18 Hz and the cardiac fundamental frequency is at ~0.61 Hz (second harmonic visible at 1.2 Hz).
 
-![S10_demo2](PREPAIR_1.0/demodata2/S10_spec.png)
-![S10_demo2_bis](PREPAIR_1.0/demodata2/S10_freq.png)
+![S10_demo2](demodata2/S10_spec.png)
+![S10_demo2_bis](demodata2/S10_freq.png)
 
 
 
