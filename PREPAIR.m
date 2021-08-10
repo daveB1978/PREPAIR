@@ -1,4 +1,7 @@
 %% Script to run PREPAIR on EPI data single subject
+%% Make sure afni_malab is downloaded (https://github.com/zsaad/afni_matlab). 
+%% AFNI C programs (https://afni.nimh.nih.gov/) is also recommended to use the baseline model in the GLM.
+
 addpath(genpath('afni_matlab'))
 
 clear variables
@@ -11,7 +14,7 @@ prepair.sliceOrder = 'asc'; % slice acquisition order. Only ascending is current
 prepair.indir = '/ceph/mri.meduniwien.ac.at/projects/radiology/fmri/data/david/data/AllBrain/3T/Paper_example_1/'; % directory where the input fMRI data
 prepair.Mc = 2; % Number of cardiac regressors
 prepair.Mr = 2; % NUmber of respiration regressors
-prepair.polort = 1; % baseline model for GLM. If AFNI is installed, set it to 1 (will use 3dDeconvolve). If not, set to 0 (baseline will be set to 1)
+prepair.polort = 1; % baseline model for GLM. If AFNI C programs are installed, set it to 1 (will use 3dDeconvolve). If not, set to 0 (baseline will be set to 1)
 prepair.waitbarBoolean = 1; % Toggle for Progress bar. 0 = "off", 1 = "on"
 
 % Optional PMU file (without extension) for comparison with PMU data;leave
