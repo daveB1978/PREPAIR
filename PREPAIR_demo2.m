@@ -1,4 +1,7 @@
 %% Script to run PREPAIR on EPI data single subject, apply the PREPAIR regressors for correction and diplays spectrogram of uncorrected vs corrected magnitude
+%% Make sure afni_malab is downloaded (https://github.com/zsaad/afni_matlab). 
+%% AFNI C programs (https://afni.nimh.nih.gov/) is also recommended to use the baseline model in the GLM.
+
 addpath(genpath('afni_matlab'))
 % Make sure chronux is downloaded! 
 % Add path to chronux toolbox 
@@ -137,9 +140,4 @@ xlabel('Frequency (Hz)')
 ylabel('Power (dB)')
 legend('PREPAIR','Uncorrected','Location','best');
 title ('Power spectra before / after correction')
-% hL=legend({'PREPAIR','Uncorrected'},'Orientation','vertical','Fontsize',16,'Box','off');
-% newPosition = [0.4 -0.015 0.2 0.10];
-% newUnits = 'pixels';
-% set(hL,'Position', newPosition);%,'Units', newUnits);
-% 
 
