@@ -10,7 +10,7 @@ PREPAIR was created and tested in MATLAB 2018 ([MathWorks](https://www.mathworks
 
 PREPAIR uses the matlab version of AFNI toolbox, available at [afni_matlab](https://github.com/zsaad/afni_matlab) as well as as the AFNI binary code available at [afni_binary](https://afni.nimh.nih.gov/)
 
-If you run the demo files, the chronux toolbox available at [chronux](https://afni.nimh.nih.gov/) will be necessary
+If you run the demo files, the chronux toolbox available at [chronux](https://afni.nimh.nih.gov/) will be necessary. Data to run the demo files are available at the [Harvard Dataver](https://dataverse.harvard.edu/dataverse/prepair).
 
 After downloading MATLAB, afni_matlab (and chronux), please direct your scripts to the appropriate directory by adding the following line:
 
@@ -56,22 +56,30 @@ PREPAIR_correction.m       --> corrects the magnitude image
 Results will be in the output directory PREPAIR/ inside the input directory where the physiological PREPAIR-magnitude and PREPAIR-phase time-series will be written (time_mag.mat and time_phase.mat, resp.), as well as the selected physiological time-series (time_PREPAIR.mat), the corrected magnitude image (ima_corr.nii), and t-statistics (t_PREPAIR_r.nii for respiration and t_PREPAIR_c.nii for cardiac) 
 
 ### Example: PREPAIR_demo1.m
-In this example, PREPAIR will only compute the physiological noise time-series with the magnitude and phase and compare their power spectra to that obtained with the PMU. In the folder demodata1 are the magnitude, phase and mask data of two subjects. The filename contains the subject number, TR value and multiband factor (MB) value to be added in the input parameters. In addition, the PMU physiological time series are included in that folder for comparison.
-For subject S10TR700MB8,the cardiac fundamental frequency is at ~0.6 Hz,and correctly identified by PREPAIR-magnitude
+In this example, PREPAIR will only compute the physiological noise time-series with the magnitude and phase and compare their spectrogram to that obtained with the PMU. Plots and the PMU physiological time series are included in that folder for comparisonare in the folder demodata1. 
+
+To reproduce the plot ![S10_demo1](demodata1/S10.png), please download the magnitude, mask and phase files of subject S10TR700MB8 in the 3TWB_1 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HWHOAR). 
+In this spectrogram, the cardiac fundamental frequency is at ~0.6 Hz,and correctly identified by PREPAIR-magnitude
 ![S10_demo1](demodata1/S10.png)
-For subject S4TR2000MB1, the cardiac fundamental frequency is at ~1.5 Hz and correctly identified by PREPAIR-phase
+
+To reproduce the plot ![S4_demo1](demodata1/S4.png), please download the magnitude, mask and phase files of subject S4TR2000MB1 in the 3TWB_4 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3DSPSB).
+In this spectrogram, the cardiac fundamental frequency is at ~1.5 Hz and correctly identified by PREPAIR-phase
 ![S4_demo1](demodata1/S4.png)
 
 ### Example: PREPAIR_demo2.m
-In this example, PREPAIR will run the entire pipeline and display the spectrogram and the power spectra of the magnitude data before and after correction. In the folder demodata2 are the magnitude, phase and mask data of three subjects. The filename contains the subject number, TR value and multiband factor (MB) value to be added in the input parameters.
+In this example, PREPAIR will run the entire pipeline and display the spectrogram and the power spectra of the magnitude data before and after correction. In the folder demodata2 arr plots for three subjects. 
+
+To reproduce the plots ![S4_demo2](demodata2/S4_spec.png) and ![S4_demo2_bis](demodata2/S4_freq.png), please download the magnitude, mask and phase files of subject S4T1020MB4 in the 3TWB_2 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YO6NHE).
 For subject S4,the respiratory fundamental frequency is at ~0.28 Hz and the cardiac fundamental frequency is at ~1.53 Hz
 ![S4_demo2](demodata2/S4_spec.png)
 ![S4_demo2_bis](demodata2/S4_freq.png)
 
+To reproduce the plots ![S5_demo1](demodata2/S5_spec.png) and ![S5_demo2](demodata2/S5_freq.png), please download the magnitude, mask and phase files of subject S4T1520MB2 in the 3TWB_3 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FR6SVM).
 For subject S5,the respiratory fundamental frequency is at ~0.29 Hz and the cardiac fundamental frequency is at ~1.0 Hz
 ![S5_demo1](demodata2/S5_spec.png)
 ![S5_demo2](demodata2/S5_freq.png)
 
+To reproduce the plots ![S10_demo1](demodata2/S10_spec.png) and ![S10_demo2](demodata2/S10_freq.png), please download the magnitude, mask and phase files of subject S10TR700MB8 in the 3TWB_1 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HWHOAR).
 For subject S10,the respiratory fundamental frequency is at ~0.18 Hz and the cardiac fundamental frequency is at ~0.61 Hz (second harmonic visible at 1.2 Hz)
 ![S10_demo1](demodata2/S10_spec.png)
 ![S10_demo2](demodata2/S10_freq.png)
