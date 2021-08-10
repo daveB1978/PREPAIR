@@ -69,15 +69,15 @@ In this spectrogram, the cardiac fundamental frequency is at ~1.5 Hz and correct
 ![S4_demo1](PREPAIR_1.0/demodata1/S4.png)
 
 ### Example: PREPAIR_demo2.m
-In this example, PREPAIR will run the entire pipeline and display the spectrogram and the power spectra of the magnitude data before and after correction. In the folder demodata2 arr plots for three subjects. 
+In this example, PREPAIR will run the entire pipeline and display the spectrogram and the power spectra of the magnitude data before and after correction. In the folder demodata2 are plots for three subjects. 
 
-To reproduce the plots below, please download the magnitude, mask and phase files of subject S4T1020MB4 in the 3TWB_2 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YO6NHE).
+To reproduce the plots below, please download the magnitude, mask and phase files of subject S4TR1020MB4 in the 3TWB_2 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YO6NHE).
 For subject S4,the respiratory fundamental frequency is at ~0.28 Hz and the cardiac fundamental frequency is at ~1.53 Hz.
 
 ![S4_demo2](PREPAIR_1.0/demodata2/S4_spec.png)
 ![S4_demo2_bis](PREPAIR_1.0/demodata2/S4_freq.png)
 
-To reproduce the plots below, please download the magnitude, mask and phase files of subject S4T1520MB2 in the 3TWB_3 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FR6SVM).
+To reproduce the plots below, please download the magnitude, mask and phase files of subject S4TR1520MB2 in the 3TWB_3 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FR6SVM).
 For subject S5,the respiratory fundamental frequency is at ~0.29 Hz and the cardiac fundamental frequency is at ~1.0 Hz.
 
 ![S5_demo2](PREPAIR_1.0/demodata2/S5_spec.png)
