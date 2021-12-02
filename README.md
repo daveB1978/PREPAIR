@@ -71,7 +71,7 @@ In this spectrogram, the cardiac fundamental frequency is at ~1.5 Hz and correct
 ### Example: PREPAIR_demo2.m
 In this example, PREPAIR will run the entire pipeline and display the spectrogram and the power spectra of the magnitude data before and after correction. In the folder demodata2 are plots for three subjects. 
 
-To reproduce the plots below, please download the magnitude, mask and phase files of subject S4TR1020MB4 in the 3TWB_2 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YO6NHE).
+To reproduce the plots below, please download the magnitude, mask and phase files of subject S5TR1020MB4 in the 3TWB_2 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YO6NHE).
 For subject S4,the respiratory fundamental frequency is at ~0.28 Hz and the cardiac fundamental frequency is at ~1.53 Hz.
 
 ![S4_demo2](demodata2/S4_spec.png)
