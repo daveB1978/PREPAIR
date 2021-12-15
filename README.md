@@ -63,7 +63,7 @@ In this spectrogram, the cardiac fundamental frequency is at ~0.6 Hz,and correct
 
 ![S10_demo1](demodata1/S10.png)
 
-To reproduce the plot below, please download the magnitude, mask and phase files of subject S4TR2000MB1 in the 3TWB_4 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3DSPSB).
+To reproduce the plot below, please download the magnitude, mask and phase files of subject S4TR1520MB2 in the 3TWB_3 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/3DSPSB).
 In this spectrogram, the cardiac fundamental frequency is at ~1.5 Hz and correctly identified by PREPAIR-phase.
 
 ![S4_demo1](demodata1/S4.png)
