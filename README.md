@@ -77,7 +77,7 @@ For subject S4,the respiratory fundamental frequency is at ~0.28 Hz and the card
 ![S4_demo2](demodata2/S4_spec.png)
 ![S4_demo2_bis](demodata2/S4_freq.png)
 
-To reproduce the plots below, please download the magnitude, mask and phase files of subject S4TR1520MB2 in the 3TWB_3 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FR6SVM).
+To reproduce the plots below, please download the magnitude, mask and phase files of subject S5TR1520MB2 in the 3TWB_3 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FR6SVM).
 For subject S5,the respiratory fundamental frequency is at ~0.29 Hz and the cardiac fundamental frequency is at ~1.0 Hz.
 
 ![S5_demo2](demodata2/S5_spec.png)
