@@ -10,7 +10,7 @@ PREPAIR was created and tested in MATLAB 2018 ([MathWorks](https://www.mathworks
 
 PREPAIR uses the matlab version of AFNI toolbox, available at [afni_matlab](https://github.com/zsaad/afni_matlab) as well as as the AFNI binary code available at [afni_binary](https://afni.nimh.nih.gov/)
 
-If you run the demo files, the chronux toolbox available at [chronux](https://afni.nimh.nih.gov/) will be necessary. Data to run the demo files are available at the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/prepair).
+If you run the demo files, the chronux toolbox available at [chronux](http://chronux.org/) will be necessary. Data to run the demo files are available at the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/prepair).
 
 After downloading MATLAB, afni_matlab (and chronux), please direct your scripts to the appropriate directory by adding the following line:
 
