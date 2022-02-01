@@ -10,7 +10,7 @@ PREPAIR was created and tested in MATLAB 2018 ([MathWorks](https://www.mathworks
 
 PREPAIR uses the matlab version of AFNI toolbox, available at [afni_matlab](https://github.com/zsaad/afni_matlab) as well as as the AFNI binary code available at [afni_binary](https://afni.nimh.nih.gov/)
 
-If you run the demo files, the chronux toolbox available at [chronux](https://afni.nimh.nih.gov/) will be necessary. Data to run the demo files are available at the [Harvard Dataver](https://dataverse.harvard.edu/dataverse/prepair).
+If you run the demo files, the chronux toolbox available at [chronux](https://afni.nimh.nih.gov/) will be necessary. Data to run the demo files are available at the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/prepair).
 
 After downloading MATLAB, afni_matlab (and chronux), please direct your scripts to the appropriate directory by adding the following line:
 
@@ -19,13 +19,13 @@ addpath(genpath('/PATH/afni_matlab'))
 addpath(genpath('/PATH/chronux'))
 ```
 
-where PATH is the path to the chronux directory.
+where PATH is the path where chronux and afni_matlab are installed.
 
 ## Installing
 
 Our software package PREPAIR is available at our lab Git - [PREPAIR](https://github.com/daveB1978/PREPAIR).
 
-We recommend running the `PREPAIR_demo1.m` or `PREPAIR_demo2.m` script in order to test if the program was downloaded successfully.
+We recommend running the `PREPAIR_demo1.m` or `PREPAIR_demo2.m` script to test if the program was sucessfully downloaded.
 
 ## Running
 
@@ -47,7 +47,7 @@ prepair.mask_file = ''; % Provide additionally a mask. Leave blank if no masking
 ```
 The core program is called PREPAIR_main.m which uses:
 ```matlab
-PREPAIR_READ_fMRI.m --> read the magnitude and phase fMRI data (optionally the mask if given)
+PREPAIR_READ_fMRI.m --> read the magnitude and phase fMRI data (optionally the mask, if given)
 PREPAIR_polort.m    --> creates the baseline regressors for the GLM
 PREPAIR_physio_waveforms.m --> creates the respiration and cardiac PREPAIR-magnitude and PREPAIR-phase time-series
 PREPAIR_mag_or_phase.m     --> performs a variance test to choose between the cardiac PREPAIR-magnitide and phase. For respiration, default is phase.
@@ -56,7 +56,7 @@ PREPAIR_correction.m       --> corrects the magnitude image
 Results will be in the output directory PREPAIR/ inside the input directory where the physiological PREPAIR-magnitude and PREPAIR-phase time-series will be written (time_mag.mat and time_phase.mat, resp.), as well as the selected physiological time-series (time_PREPAIR.mat), the corrected magnitude image (ima_corr.nii), and t-statistics (t_PREPAIR_r.nii for respiration and t_PREPAIR_c.nii for cardiac) 
 
 ### Example: PREPAIR_demo1.m
-In this example, PREPAIR will only compute the physiological noise time-series with the magnitude and phase and compare their spectrogram to that obtained with the PMU. Plots and the PMU physiological time series are included in that folder for comparisonare in the folder demodata1. 
+In this example, PREPAIR will only compute the physiological noise time-series with the magnitude and phase and compare their spectrogram to that obtained with the PMU. Plots and the PMU physiological time series are included for comparison in the folder demodata1. 
 
 To reproduce the plot below, please download the magnitude, mask and phase files of subject S10TR700MB8 in the 3TWB_1 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HWHOAR). 
 In this spectrogram, the cardiac fundamental frequency is at ~0.6 Hz,and correctly identified by PREPAIR-magnitude.
@@ -69,7 +69,7 @@ In this spectrogram, the cardiac fundamental frequency is at ~1.5 Hz and correct
 ![S4_demo1](demodata1/S4.png)
 
 ### Example: PREPAIR_demo2.m
-In this example, PREPAIR will run the entire pipeline and display the spectrogram and the power spectra of the magnitude data before and after correction. In the folder demodata2 are plots for three subjects. 
+In this example, PREPAIR will run the entire pipeline and display the spectrogram and the power spectra of the magnitude data before and after correction. We included in the folder demodata2 plots for three subjects. 
 
 To reproduce the plots below, please download the magnitude, mask and phase files of subject S4TR1020MB4 in the 3TWB_2 dataset of the [PREPAIR dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YO6NHE).
 For subject S4,the respiratory fundamental frequency is at ~0.28 Hz and the cardiac fundamental frequency is at ~1.53 Hz.
