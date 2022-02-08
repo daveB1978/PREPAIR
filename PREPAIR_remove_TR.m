@@ -18,9 +18,9 @@ sig2=sig;
 
 for n=1:ind*2
     od = find(abs(f-n*Fs2)<0.001);
-    p(od)= p(od)/1000000;
+    p(od)= 0;%p(od)/1000000;
     od = find(abs(f-(Fs-n*Fs2))<0.001);
-    p(od)= p(od)/1000000;
+    p(od)= 0;%p(od)/1000000;
 end
 
     sig2=real(ifft(p));

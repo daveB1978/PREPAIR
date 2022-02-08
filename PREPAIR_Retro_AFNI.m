@@ -13,12 +13,14 @@ function [SN, RESP, CARD] = PREPAIR_Retro_AFNI(prepair,c_,r_, Mr, Mc)
 
 outdir = prepair.outdir;
 
-dlmwrite([outdir '/respFT.dat'], r_);
-dlmwrite([outdir '/cardFT.dat'], c_);
+%dlmwrite([outdir '/respFT.dat'], r_);
+%dlmwrite([outdir '/cardFT.dat'], c_);
+dlmwrite(fullfile(prepair.outdir, '/respFT.dat'), r_);
+dlmwrite(fullfile(prepair.outdir, '/cardFT.dat'), c_);
 
 SN=[];
-SN.Cardfile     = [outdir '/cardFT.dat'];
-SN.Respfile     = [outdir '/respFT.dat'];
+SN.Cardfile     = fullfile(prepair.outdir, '/cardFT.dat');
+SN.Respfile     = fullfile(prepair.outdir, '/respFT.dat');
 SN.ShowGraphs   = 0; 
 SN.VolTR        = prepair.TR; 
 SN.Nslices      = prepair.N; 
@@ -26,7 +28,7 @@ SN.SliceOffset  = prepair.timeSlice;
 SN.SliceOrder   = 'Custom';
 SN.PhysFS       = length(c_)/prepair.TR/prepair.vol; 
 SN.Quiet=1; 
-SN.Prefix=[outdir '/RetroTS.PREPAIR']; 
+SN.Prefix= fullfile(prepair.outdir,'/RetroTS.PREPAIR'); 
 SN.RVT_out      = 0;
 % Number of regressors
 SN.Rreg = Mr; 
