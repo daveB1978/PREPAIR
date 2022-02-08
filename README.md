@@ -29,7 +29,7 @@ We recommend running the `PREPAIR_demo1.m` or `PREPAIR_demo2.m` script to test i
 
 ## fMRI data
 
-All fMRI data used in our study are publicly available at the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/prepair). IMPORTANT: If youo prefer reading magnitude NIFTI files with the afni SOFTWARE, please manually change the value of the TR (is second) in the header. To do so, search for "TAXIS_FLOATS", and two lines under, modify the 2nd parameter. 
+All fMRI data used in our study are publicly available at the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/prepair). IMPORTANT: If you prefer reading magnitude NIFTI files with the AFNI sofware, please manually change the TR value (in second) in the header. To do so, search for "TAXIS_FLOATS", and two lines under, modify the 2nd parameter. 
 
 ## Running
 
