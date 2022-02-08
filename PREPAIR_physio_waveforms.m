@@ -156,8 +156,8 @@ prepair.timeTR = timeTR;
 prepair.timeSlice = timeSlice;
 prepair.sliceVolTR = sliceVolTR;
 
-% save time_phase.mat card_phase resp_phase pos timeTR
-% save time_mag.mat card_mag resp_mag pos timeTR
-% system(['mv time_phase.mat ' outdir '/']);
-% system(['mv time_mag.mat ' outdir '/']);
+save time_phase.mat card_phase resp_phase pos timeTR
+save time_mag.mat card_mag resp_mag pos timeTR
+system(['mv time_phase.mat ' outdir '/']);
+system(['mv time_mag.mat ' outdir '/']);
 
