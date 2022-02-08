@@ -1,6 +1,6 @@
 # PREPAIR - Unsupervised Physiological Regressor Estimation from Phase and mAgnItude sub-tR
 
-We created a unsupervised physiological noise removal tool using magnitude and phase data and tested for short and long TRs.
+We created an unsupervised physiological noise removal tool using magnitude and phase data and tested for short and long TRs.
 Our code is under the MIT license and has no warranty.
 Below, we describe the steps for implementing the software:
 
