@@ -19,9 +19,11 @@ switch(typ)
         sig_filt = PREPAIR_centring(dtTR,sig, Fs, xr);
     
     case('CARD')
-        a=0.7;
-        b=min((Fs/2)-0.001,1.6);
-        [b,a] = butter(3,[a b]/(Fs/2));
+        a0=0.7;
+        b0=min((Fs/2)-0.001,1.6);
+        [b,a] = butter(3,[a0 b0]/(Fs/2));
+        %xc = [a0 b0];
+       %sig_filt = PREPAIR_centring(dtTR,sig,Fs,xc);
        sig_filt = filter(b,a,sig);
     case('oneHZ')
         [p,f,~,~]=PREPAIR_fourier(dtTR,sig);
