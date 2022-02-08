@@ -10,14 +10,14 @@ if prepair.waitbarBoolean
 end
 TR = prepair.TR;
 
-if exist([prepair.outdir 'f+orig.HEAD'])
-    command=['rm ' prepair.outdir 'f+orig.*'];
+if exist(fullfile(prepair.outdir, 'f+orig.HEAD'))
+    command=['rm ' fullfile(prepair.outdir, 'f+orig.*')];
     system(command);
 end
 
-command=['3dcopy ' prepair.indir mag_file ' ' prepair.outdir 'f+orig'];
+command=['3dcopy ' fullfile(prepair.indir, mag_file) ' ' fullfile(prepair.outdir, 'f+orig')];
 system(command);
-fid=fopen([prepair.outdir 'f+orig.HEAD']);
+fid=fopen(fullfile(prepair.outdir, 'f+orig.HEAD'));
 data   = textscan(fid, '%s', 'Delimiter', '\n');
 fclose(fid);
 data = reshape(data{1,:},1,[]);
@@ -33,7 +33,7 @@ if tata(2) ~=TR
     toto={ttt};
     data(tr+2)=toto;
     temp=string(data);
-    fid=fopen([prepair.outdir 'f+orig.HEAD'],'w');
+    fid=fopen(fullfile(prepair.outdir, 'f+orig.HEAD'),'w');
     fprintf(fid,'%s\n',temp);
     fclose(fid);
 end
@@ -41,14 +41,14 @@ end
 if prepair.waitbarBoolean
     waitbar(1/2,wait) % increment the waitbar
 end
-command=['3dDeconvolve -polort A -input ' prepair.outdir 'f+orig -x1D_stop -x1D ' prepair.outdir 'polort -overwrite'];
+command=['3dDeconvolve -polort A -input ' fullfile(prepair.outdir, 'f+orig -x1D_stop -x1D ') fullfile(prepair.outdir, 'polort -overwrite')];
 system(command);
 if prepair.waitbarBoolean
     waitbar(2/2,wait) % increment the waitbar
 end
-command=['1dcat ' prepair.outdir 'polort.xmat.1D > ' prepair.outdir 'clean_polort.xmat.1D' ];
+command=['1dcat ' fullfile(prepair.outdir, 'polort.xmat.1D > ') fullfile(prepair.outdir, 'clean_polort.xmat.1D')];
 system(command);
-prepair.polort = load([prepair.outdir 'clean_polort.xmat.1D']);
+prepair.polort_ = load(fullfile(prepair.outdir, 'clean_polort.xmat.1D'));
 if prepair.waitbarBoolean
     close(wait);
 end
