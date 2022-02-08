@@ -27,6 +27,10 @@ Our software package PREPAIR is available at our lab Git - [PREPAIR](https://git
 
 We recommend running the `PREPAIR_demo1.m` or `PREPAIR_demo2.m` script to test if the program was sucessfully downloaded.
 
+## fMRI data
+
+All fMRI data used in our study are publicly available at the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/prepair). IMPORTANT: If youo prefer reading magnitude NIFTI files with the afni SOFTWARE, please manually change the value of the TR (is second) in the header. To do so, search for "TAXIS_FLOATS", and two lines under, modify the 2nd parameter. 
+
 ## Running
 
 The main program is called PREPAIR.m which requires the following inputs:
