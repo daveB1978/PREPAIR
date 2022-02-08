@@ -1,9 +1,14 @@
 function [ima_corr,t_c, t_r] =  PREPAIR_correction(prepair)
 % Function for magnitude image correction using PREPAIR time series
+
 % INPUT:
 % mag = 4D magnitude data
 % prepair = prepair structure
 % c_ and r_ = PREPAIR cardiac and respiratory time series
+
+% OUTPUT
+% ima_corr = corrected magnitude image
+% t_c, t_r = cardiac and respiratory regressors t_values
 
 
 x = prepair.x;
@@ -14,8 +19,10 @@ Mr = prepair. Mr;
 Mc = prepair. Mc;
 mask = prepair.mask;
 mag = prepair.mag;
+NR = prepair.NR;
 c_ = prepair.Creg;
 r_ = prepair.Rreg;
+
 
 % t-values
 t_r = zeros(x,y,z,2*Mr);
@@ -24,13 +31,14 @@ ima_corr = zeros(x,y,z,t);
 
 c_ = c_/std(c_);
 r_ = r_/std(r_);
+
+
 [~, RESP, CARD] = PREPAIR_Retro_AFNI(prepair, c_, r_, Mr, Mc);
 
-NR = prepair.NR;
 if prepair.polort == 0
     Ap = ones(t,1);
 else
-    Ap = prepair.polort;%ones(t,1);%prepair.polort;
+    Ap = prepair.polort_;
 end
 
 if prepair.waitbarBoolean
@@ -38,19 +46,9 @@ if prepair.waitbarBoolean
 end
 
 for k=1:z
-    if prepair.waitbarBoolean
-        waitbar((k-1)/z,wait) % increment the waitbar
-    end
-    if mod(k,NR)
-        l = mod(k,NR);
-    else
-        l=NR;
-    end
-  
-    Ar = [squeeze(RESP.phz_slc_reg(:,1:2*Mr,l)) Ap];
-    Ac = [squeeze(CARD.phz_slc_reg(:,1:2*Mc,l)) Ap];
-    Arc = [squeeze(RESP.phz_slc_reg(:,1:2*Mr,l)) squeeze(CARD.phz_slc_reg(:,1:2*Mc,l)) Ap];
-    
+
+    Arc = [squeeze(CARD.phz_slc_reg(:,1:2*Mc,z)) squeeze(RESP.phz_slc_reg(:,1:2*Mr,z)) Ap];
+
     for i=1:x
         for j=1:y
             if mask(i,j,k)==1
@@ -59,21 +57,16 @@ for k=1:z
                 SD = std(vox_mag);
                 vox_mag = vox_mag/SD;
                  
-                [pr,std_r_err] = lscov(Ar,vox_mag);
-                [pc,std_c_err] = lscov(Ac,vox_mag);
-                [prc,~] = lscov(Arc,vox_mag);
-                
+                [prc,std_err] = lscov(Arc,vox_mag);
 
-                pr(2*Mr+1:end) = 0;
-                pc(2*Mc+1:end) = 0;
                 prc(2*(Mr+Mc)+1:end) = 0;
                 ima_corr(i,j,k,:) = (vox_mag - (Arc*prc))*SD;
  
                % t-values
                 
-                t_r(i,j,k,:) = pr(1:2*Mr)./std_r_err(1:2*Mr);
-                t_c(i,j,k,:) = pc(1:2*Mc)./std_c_err(1:2*Mc);
-                
+               t_c(i,j,k,:) = prc(1:2*Mc)./std_err(1:2*Mc);
+               t_r(i,j,k,:) = prc(2*Mc+1:2*(Mr+Mc))./std_err(2*Mc+1:2*(Mr+Mc));
+
     
             end
             

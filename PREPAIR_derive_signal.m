@@ -103,12 +103,12 @@ unSig_phase=double(unSig_phase);
 
 % Remove 3rd polynomials trends in each slice + devide by MAD to remove non-periodic signal like sudden motion, etc... 
 for k=1:Nk
-      p = polyfit(1:numel(unSig_mag(k,:)),unSig_mag(k,:),3);     
+      p = polyfit(1:numel(unSig_mag(k,:)),unSig_mag(k,:),2);     
       sig_mag(k,:) = unSig_mag(k,:) - polyval(p, (1:numel(unSig_mag(k,:))));
-      sig_mag(k,:) = sig_mag(k,:) / mad(sig_mag(k,:));
+    %  sig_mag(k,:) = sig_mag(k,:) / mad(sig_mag(k,:));
 
  
-      p = polyfit(1:numel(unSig_phase(k,:)),unSig_phase(k,:),3);
+      p = polyfit(1:numel(unSig_phase(k,:)),unSig_phase(k,:),2);
       sig_phase(k,:) = unSig_phase(k,:) - polyval(p, (1:numel(unSig_phase(k,:))));
       sig_phase(k,:) = sig_phase(k,:)/mad(sig_phase(k,:));
       

@@ -59,7 +59,6 @@ acqSlice = PREPAIR_slice_order(N,MB, sliceOrder);
 Smag = Smag';
 Sphase = Sphase';
 
-
 % Get the position of each slice in each serie of multiband (pos)
 pos = PREPAIR_treat_multiband(N, MB, acqSlice, acqSlice2, slice2keep);
 
@@ -73,8 +72,20 @@ r_bpm = 2.5;
 sigTR_phase = PREPAIR_volTRtosliceTR(Sphase,nVol,pos,MB,NR,N,slice2);
 sigTR_phase = PREPAIR_remove_TR(Fs, Fs2,dtTR,sigTR_phase);
 
-% Remove the 1HZ pump-related frequency
+sigTR_mag = PREPAIR_volTRtosliceTR(Smag,nVol,pos,MB,NR,N,slice2);
+sigTR_mag = PREPAIR_remove_TR(Fs, Fs2,dtTR,sigTR_mag);
+
+% Remove the 1HZ pump-related frequency: should be commented if different
+% frequency
 sigTR_phase = PREPAIR_filter_signal('oneHZ',Fs, sigTR_phase);
+
+% Remove the 1HZ pump-related frequency should be commented if different
+% frequency
+sigTR_mag = PREPAIR_filter_signal('oneHZ',Fs, sigTR_mag);
+
+[~,~,p,f]=PREPAIR_fourier(dtTR,sigTR_mag);
+drift_mag=f(p==max(p));
+
 
 % prefilter sigTR_phase in the range of cardiac frequencies
 cardFT_temp=PREPAIR_filter_signal('CARD',Fs,sigTR_phase);
@@ -84,31 +95,26 @@ fCC_phase=PREPAIR_main_peak(dtTR,cardFT_temp);
 respFT_temp = PREPAIR_filter_signal('RESP',Fs,sigTR_phase);
 % Find the harmonics
 fRR_phase=PREPAIR_main_peak(dtTR,respFT_temp);
+[~,~,p,f]=PREPAIR_fourier(dtTR,sigTR_phase);
+drift_phase=f(f<0.9*fRR_phase & p==max(p(f<0.9*fRR_phase)));
+
 % Correct sidebands only if fCC_phase is sideband-related
-sigTR_phase = PREPAIR_remove_sidebands(Fs, Fs2,dtTR,sigTR_phase,fRR_phase, fCC_phase,'phase');
+sigTR_phase = PREPAIR_phase_remove_sidebands2(Fs, Fs2,dtTR,sigTR_phase,fRR_phase, drift_mag);
 % Refilter sigTR_phase
 cardFT_temp=PREPAIR_filter_signal('CARD',Fs,sigTR_phase);
 % Find the new 1st harmonics
 fCC_phase=PREPAIR_main_peak(dtTR,cardFT_temp);
 
+
 % Filter the sigTR_phase in the range of xc which is centered around
 % fCC_phase
 xc = fCC_phase +[-c_bpm c_bpm]/60;
 card_phase=PREPAIR_centring(dtTR,sigTR_phase,Fs,xc);
-%card_phase=PREPAIR_centring(dtTR,cardFT_temp,Fs,xc);
 
 % Filter the sigTR_phase in the range of xr which is centered around
 % fRR_phase
 xr = fRR_phase +[-r_bpm r_bpm]/60;
 resp_phase=PREPAIR_centring(dtTR,sigTR_phase,Fs,xr);
-
-% Attach all magnitude slices together taking into account their order of acquistion 
-
-sigTR_mag = PREPAIR_volTRtosliceTR(Smag,nVol,pos,MB,NR,N,slice2);
-sigTR_mag = PREPAIR_remove_TR(Fs, Fs2,dtTR,sigTR_mag);
-
-% Remove the 1HZ pump-related frequency
-sigTR_mag = PREPAIR_filter_signal('oneHZ',Fs, sigTR_mag);
 
 % prefilter sigTRmag in the range of cardiac frequencies
 cardFT_temp=PREPAIR_filter_signal('CARD',Fs,sigTR_mag);
@@ -119,7 +125,7 @@ respFT_temp = PREPAIR_filter_signal('RESP',Fs,sigTR_mag);
 % Find the harmonics
 fRR_mag=PREPAIR_main_peak(dtTR,respFT_temp);
 % Correct sidebands only if fCC_phase is sideband-related
-sigTR_mag = PREPAIR_remove_sidebands(Fs, Fs2,dtTR,sigTR_mag,fRR_mag, fCC_mag,'mag');
+sigTR_mag = PREPAIR_mag_remove_sidebands(Fs, Fs2,dtTR,sigTR_mag,fRR_phase, fCC_mag,drift_phase);
 % Refilter sigTRmag
 cardFT_temp=PREPAIR_filter_signal('CARD',Fs,sigTR_mag);
 % Find the new 1st harmonics
@@ -150,9 +156,8 @@ prepair.timeTR = timeTR;
 prepair.timeSlice = timeSlice;
 prepair.sliceVolTR = sliceVolTR;
 
-
-save time_phase.mat card_phase resp_phase pos timeTR
-save time_mag.mat card_mag resp_mag pos timeTR
-system(['mv time_phase.mat ' outdir '/']);
-system(['mv time_mag.mat ' outdir '/']);
+% save time_phase.mat card_phase resp_phase pos timeTR
+% save time_mag.mat card_mag resp_mag pos timeTR
+% system(['mv time_phase.mat ' outdir '/']);
+% system(['mv time_mag.mat ' outdir '/']);
 
