@@ -1,6 +1,6 @@
 # PREPAIR - Unsupervised Physiological Regressor Estimation from Phase and mAgnItude sub-tR
 
-We created an unsupervised physiological noise removal tool using magnitude and phase data and tested for short and long TRs.
+We created an unsupervised physiological noise removal tool -- PREPAIR -- using magnitude and phase data to identify respiration and cardiac fluctuations in the brain without the need of external recordings. PREPAIR was tested for short and long TRs.
 Our code is under the MIT license and has no warranty.
 Below, we describe the steps for implementing the software:
 
