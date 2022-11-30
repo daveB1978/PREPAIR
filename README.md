@@ -8,7 +8,7 @@ Below, we describe the steps to run the software:
 
 PREPAIR was created and tested in MATLAB 2018 ([MathWorks](https://www.mathworks.com/)).
 
-PREPAIR uses the matlab version of AFNI toolbox, available at [afni_matlab](https://github.com/zsaad/afni_matlab) as well as as the AFNI binary code available at [afni_binary](https://afni.nimh.nih.gov/)
+PREPAIR uses the matlab version of AFNI toolbox, available at [afni_matlab](https://github.com/zsaad/afni_matlab), the AFNI binary code available at [afni_binary](https://afni.nimh.nih.gov/), as well as the nifti tools available at [nifti_tools](https://github.com/sergivalverde/nifti_tools).
 
 If you run the demo files, the chronux toolbox available at [chronux](http://chronux.org/) will be necessary. Data to run the demo files are available at the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/prepair).
 
