@@ -16,6 +16,7 @@ After downloading MATLAB, afni_matlab (and chronux), please direct your scripts 
 
 ```Matlab
 addpath(genpath('/PATH/afni_matlab'))
+addpath(genpath('/PATH/nifti_tools'))
 addpath(genpath('/PATH/chronux'))
 ```
 
