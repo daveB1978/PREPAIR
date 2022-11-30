@@ -101,4 +101,4 @@ This project is licensed under the MIT License [LICENSE.txt](LICENSE.txt).
 
 ## Questions
 
-Please contact us with any questions at david.bancelin@meduniwien.ac.at
+Please contact us with any questions at simon.robinson@meduniwien.ac.at
