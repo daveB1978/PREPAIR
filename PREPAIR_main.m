@@ -34,7 +34,7 @@ end
 if prepair.waitbarBoolean
     waitbar(1/1,wait) % increment the waitbar
 end
-centre_and_save_nii(make_nii(ima_corr),fullfile(prepair.outdir,'mag_corr.nii'),prepair.pixdim)
+save_nii(make_nii(ima_corr),fullfile(prepair.outdir,'mag_corr.nii'))
 
 prepair.ima_corr = ima_corr;
 
