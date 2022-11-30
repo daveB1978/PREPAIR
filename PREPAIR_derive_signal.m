@@ -31,7 +31,7 @@ if prepair.waitbarBoolean
     waitbar(0/2,wait) % increment the waitbar
 end
 % Choose per as the grand maximum = 98th percentile of the data
-per = percentile(mag(mag>0),98);
+per = prctile(mag(mag>0),98);
 for k=1:Nk
     for i=1:Ni
         for j=1:Nj
